@@ -1,7 +1,7 @@
 # web2-tpe-entrega1
 
-Integrantes: -Gomez Matias Leonardo
-             -Giacomino Gonzalo Nahuel
+Integrantes: -Gomez Matias Leonardo (mati.leonardo@outlook.com)              
+             -Giacomino Gonzalo Nahuel (gonzagiacomino18@gmail.com)
 
 Tematica: Canciones y artistas.
 

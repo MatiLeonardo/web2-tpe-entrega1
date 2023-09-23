@@ -11,7 +11,7 @@ Descripcion: La base de datos contiene una tabla Artistas y otra Canciones. Se g
 
 Dentro de artista se guardarán: 
 
--ID, nombre_artista(artístico), edad, nacionalidad
+- nombre_artista(artístico), edad, nacionalidad
 
 Dentro de cada canción se guardará:
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 18:35:42
+-- Tiempo de generación: 11-10-2023 a las 20:46:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -28,11 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `artistas` (
-  `nombre_artista` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL,
+  `nombre_artista` varchar(30) NOT NULL,
   `descripcion` varchar(300) NOT NULL,
   `edad` int(11) NOT NULL,
   `nacionalidad` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `artistas`
+--
+
+INSERT INTO `artistas` (`id`, `nombre_artista`, `descripcion`, `edad`, `nacionalidad`) VALUES
+(3, 'GIGIGI', 'AAAAAA', 33, 'DADADA');
 
 -- --------------------------------------------------------
 
@@ -57,18 +65,25 @@ CREATE TABLE `canciones` (
 -- Indices de la tabla `artistas`
 --
 ALTER TABLE `artistas`
-  ADD PRIMARY KEY (`nombre_artista`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nombre_artista` (`nombre_artista`);
 
 --
 -- Indices de la tabla `canciones`
 --
 ALTER TABLE `canciones`
   ADD PRIMARY KEY (`id_cancion`),
-  ADD UNIQUE KEY `nombre_artistaFK` (`nombre_artista`);
+  ADD KEY `fk_nombre_artista` (`nombre_artista`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `artistas`
+--
+ALTER TABLE `artistas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `canciones`

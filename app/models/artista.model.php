@@ -1,6 +1,6 @@
 <?php
 
-Class IndexModel{
+Class ArtistaModel{
 
     function connectionDB(){
         $db =  new PDO('mysql:host=localhost;dbname=tpeweb2_cancionesyartistas;charset=utf8','root','');
@@ -16,4 +16,12 @@ Class IndexModel{
         return $artistas;
     }
 
+    function getArtista($nombre_artista){
+        $db = $this->connectionDB();
+        $query = $db->prepare('SELECT * from artistas WHERE nombre_artista = ?');
+        $query->execute([$nombre_artista]);
+        $artista = $query->fetch(PDO::FETCH_OBJ);
+        
+        return $artista;
+    }
 }

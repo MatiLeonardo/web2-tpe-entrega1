@@ -16,10 +16,10 @@ Class ArtistaModel{
         return $artistas;
     }
 
-    function getArtista($nombre_artista){
+    function getArtista($id){
         $db = $this->connectionDB();
-        $query = $db->prepare('SELECT * from artistas WHERE nombre_artista = ?');
-        $query->execute([$nombre_artista]);
+        $query = $db->prepare('SELECT * from artistas WHERE id = ?');
+        $query->execute([$id]);
         $artista = $query->fetch(PDO::FETCH_OBJ);
         
         return $artista;

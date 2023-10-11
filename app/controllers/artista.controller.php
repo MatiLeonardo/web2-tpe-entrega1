@@ -18,8 +18,8 @@ class ArtistaController{
 
     }
 
-    function showArtista($nombre_artista){
-        $artista = $this->model->getArtista($nombre_artista);
+    function showArtista($id){
+        $artista = $this->model->getArtista($id);
         $this->view->showArtista($artista);
         
     }

@@ -1,0 +1,22 @@
+<?php 
+include 'header.phtml'; 
+
+echo "
+<table>
+    <thead>
+        <tr>
+            <td>Artista</td>
+        </tr>
+    </thead>
+        <tbody>";
+            foreach($artistas as $artista){
+                echo"<tr><td><a href='artista/$artista->nombre_artista'>$artista->nombre_artista</a></td></tr>";
+            }
+    echo"
+        </tbody>
+</table>
+";
+
+include 'footer.phtml'; 
+
+?>

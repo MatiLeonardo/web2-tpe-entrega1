@@ -1,21 +1,22 @@
 <?php 
 include 'header.phtml'; 
 
-foreach($artista as $datos){
-echo "<div>
+echo "
+    <div class='contenedorArtista'>
+      <div>
         <h2>Artista</h2>
-        <h3>$datos->nombre_artista</h3>
+        <h3>$artista->nombre_artista</h3>
       </div>
       <div>
       <h2>Descripcion</h2>
-      <p>$datos->descripcion</p>
+      <p>$artista->descripcion</p>
       </div>
       <div>
       <h4>Nacionalidad</h4>
-      <p>$datos->nacionalidad</p>
-      <p>Edad: $datos->edad</p>
-      </div>";
-}
+      <p>$artista->nacionalidad</p>
+      <p>Edad: $artista->edad</p>
+      </div>
+    </div>";
 
 include 'footer.phtml'; 
 

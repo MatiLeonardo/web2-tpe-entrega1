@@ -37,15 +37,17 @@ class ArtistaController
 
         if (empty($nombre) || empty($desc) || empty($edad) || empty($nac)) {
             $this->view->showError("Debes completar todos los datos");
+            return;
         }
 
         $id = $this->model->addArtista($nombre, $desc, $edad, $nac);
-        if ($id) {
+        if($id){
             header("Location: " . BASE_URL);
         } else {
-            $this->view->showError("Error al insertar artista");
+            $this->view->showError("Error al insertar el artista");
         }
 
+        header("Location: " . BASE_URL);
     }
 
     function removeArtist($id)
@@ -64,15 +66,20 @@ class ArtistaController
 
         if (empty($nombre) || empty($desc) || empty($edad) || empty($nac)) {
             $this->view->showError("Debes completar todos los datos");
+            return;
         }
-
-        $ide = $this->model->editArtista($id);
-        if ($ide) {
-            header("Location: " . BASE_URL);
-        } else {
-            $this->view->showError("Error al editar artista");
+        $ide = $this->model->editArtista($id, $nombre, $desc, $edad, $nac);
+        if($ide){
+        header("Location: " . BASE_URL);
+        } else{
+            $this->view->showError("Error al editar el artista");
         }
+    }
 
+    function showArtistPanel()
+    {
+        $artistas = $this->model->getArtistas();
+        $this->view->showArtistPanel($artistas);
 
     }
 

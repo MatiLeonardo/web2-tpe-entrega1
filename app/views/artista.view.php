@@ -14,6 +14,13 @@ class ArtistaView{
 
     }
 
+    function showArtistPanel($artistas){
+
+        require './templates/artistList.phtml';
+        require './templates/artistAgregar.phtml';
+
+    }
+
     function showError($error){
         require './templates/error.phtml';
     }

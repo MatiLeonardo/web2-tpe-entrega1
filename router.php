@@ -45,6 +45,9 @@ switch ($params[0]) {
     case "editArtista":
         $controller = new ArtistaController();
         $controller->editArtist($params[1]);
+    case "artistControl":
+        $controller = new ArtistaController();
+        $controller->showArtistPanel();
     default:
         echo "404 Page Not Found";
         break;

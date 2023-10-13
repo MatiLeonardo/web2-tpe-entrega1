@@ -1,0 +1,34 @@
+<?php include './templates/header.phtml'; ?>
+
+<div class="contenedor-form">
+    <div class="form-tarjeta">
+        <form action="login" method="post">
+            <div class="form-group">
+                <label for="">Usuario</label>
+                <input type="username" name="usuario">
+            </div>
+            <div class="form-group">
+
+                <label for="">Contraseña</label>
+                <input type="password" name="password">
+            </div>
+
+            <?php if ($error): ?>
+                <div class='alert alert-danger' role='alert'>
+                    <?= $error ?>
+                </div>
+            <?php endif ?>
+
+            <button type="submit">Loguear</button>
+
+        </form>
+        <div>
+            <p>¿No tienes cuenta?</p>
+            <a href="register">Registrar</a>
+        </div>
+    </div>
+</div>
+
+
+
+<?php include './templates/footer.phtml'; ?>

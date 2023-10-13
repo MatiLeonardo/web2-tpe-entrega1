@@ -9,18 +9,23 @@ body {
     background-color: rgb(26, 26, 26);
 }
 
-a{
+a {
     text-decoration: none;
-
+    color: blueviolet;
 }
 
 header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 80px;
     background-color: whitesmoke;
     padding: 10px 40px 10px 40px;
     color: rgb(26, 26, 26);
+}
+
+header nav a{
+    padding-right: 10px;
 }
 
 footer {
@@ -60,7 +65,7 @@ footer {
 .artist-nom h3 {
     font-size: 4em;
     color: transparent;
-    background: linear-gradient(90deg, rgba(255,0,208,1) 0%, rgba(233,19,130,1) 50%, rgba(255,0,63,1) 100%); 
+    background: linear-gradient(90deg, rgba(255, 0, 208, 1) 0%, rgba(233, 19, 130, 1) 50%, rgba(255, 0, 63, 1) 100%);
     background-clip: text;
 }
 
@@ -69,56 +74,105 @@ footer {
     margin-right: 40px;
 }
 
-.artist-desc h2{
+.artist-desc h2 {
     color: transparent;
-    background: linear-gradient(90deg, rgba(0,255,134,1) 0%, rgba(19,233,49,1) 50%, rgba(255,220,0,1) 100%); 
+    background: linear-gradient(90deg, rgba(0, 255, 134, 1) 0%, rgba(19, 233, 49, 1) 50%, rgba(255, 220, 0, 1) 100%);
     background-clip: text;
 }
 
-.artist-nac h4{
+.artist-nac h4 {
     color: transparent;
-    background: linear-gradient(90deg, rgba(255,0,208,1) 0%, rgba(233,19,130,1) 50%, rgba(255,0,63,1) 100%); 
+    background: linear-gradient(90deg, rgba(255, 0, 208, 1) 0%, rgba(233, 19, 130, 1) 50%, rgba(255, 0, 63, 1) 100%);
     background-clip: text;
 }
 
 /*-------------------------------------------*/
 
-.contenedor-tarjeta-artista{
+.contenedor-tarjeta-artista {
     background-color: rgb(26, 26, 26);
     padding: 40px 40px 40px 40px;
     height: 70vh;
 }
 
-.artist-tarjeta{
+.artist-tarjeta {
     height: 100px;
-    
+
     border: 1px solid;
-    border-color: rgba(0,255,134,1);
+    border-color: rgba(0, 255, 134, 1);
     border-radius: 30px;
     margin: 20px;
     cursor: pointer;
 }
 
-.artist-tarjeta a{
+.artist-tarjeta a {
     display: flex;
     align-items: center;
     color: transparent;
-    background: linear-gradient(90deg, rgba(0,255,134,1) 0%, rgba(19,233,49,1) 50%, rgb(94, 255, 0) 100%); 
+    background: linear-gradient(90deg, rgba(0, 255, 134, 1) 0%, rgba(19, 233, 49, 1) 50%, rgb(94, 255, 0) 100%);
     background-clip: text;
     font-size: 1.5em;
     width: 100%;
     height: 100%;
     padding: 20px;
-    
+
 }
 
-.artist-tarjeta:hover{
-    background: linear-gradient(90deg, rgba(0,255,134,1) 0%, rgba(19,233,49,1) 50%, rgb(94, 255, 0) 100%); 
+.artist-tarjeta:hover {
+    background: linear-gradient(90deg, rgba(0, 255, 134, 1) 0%, rgba(19, 233, 49, 1) 50%, rgb(94, 255, 0) 100%);
     color: rgb(26, 26, 26);
 }
 
-.artist-tarjeta:hover a{
+.artist-tarjeta:hover a {
     color: rgb(26, 26, 26);
 }
 
+.contenedor-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(26, 26, 26);
+}
 
+.form-group label {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+form button{
+    margin-top: 10px;
+    background-color: rgb(87, 85, 231);
+    border: 0px solid;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: rgb(63, 61, 184);
+}
+
+input{
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 5px;
+    width: 100%;
+}
+
+form{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.form-tarjeta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    height: 200px;
+    padding: 50px;
+    border-radius: 30px;
+    margin: 50px;
+}

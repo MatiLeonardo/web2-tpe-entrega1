@@ -1,21 +1,27 @@
 <div class='contenedor-artist-control'>
-    <form action='editArtista' method="post">
+    <div>
+        <div style="padding-right: 100px;">
+            <p style="font-size: 3em;">Control Panel</p>
 
-        <label for=''>Nombre artístico</label>
-        <input type='text' name='artist-name'>
+        </div>
+        <div style="padding-left: 100px;">
+            <p style="font-size: 3em;">Agregar artista</p>
+            <form id="" action='editArtista' method="post">
 
-        <label for=''>Descripcion</label>
-        <textarea name='artist-desc' id='' cols='30' rows='10'></textarea>
+                <label for=''>Nombre artístico</label>
+                <input type='text' name='artist-name'>
 
-        <label for=''>Edad</label>
-        <input type='text' name='artist-edad'>
+                <label for=''>Descripcion</label>
+                <textarea name='artist-desc' id='' cols='30' rows='10'></textarea>
 
-        <label for=''>Nacionalidad</label>
-        <input type='text' name='artist-nac'>
+                <label for=''>Edad</label>
+                <input type='text' name='artist-edad'>
 
-        <button type='submit'>Editar</button>
-    </form>
+                <label for=''>Nacionalidad</label>
+                <input type='text' name='artist-nac'>
 
-
+                <button type='submit'>Editar</button>
+            </form>
+        </div>
+    </div>
 </div>
-

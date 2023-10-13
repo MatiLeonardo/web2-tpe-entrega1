@@ -76,11 +76,4 @@ class ArtistaController
         }
     }
 
-    function showArtistPanel()
-    {
-        $artistas = $this->model->getArtistas();
-        $this->view->showArtistPanel($artistas);
-
-    }
-
 }

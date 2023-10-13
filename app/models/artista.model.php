@@ -30,7 +30,7 @@ Class ArtistaModel{
         $query = $db->prepare('INSERT INTO artistas (nombre_artista, descripcion, edad, nacionalidad) VALUES (?, ?, ?, ?)');
         $query->execute([$nombre, $descripcion, $edad, $nacionalidad]);
 
-        return $this->$db->lastInsertId();
+        return $db->lastInsertId();
 
     }
 

@@ -24,7 +24,7 @@ header {
     color: rgb(26, 26, 26);
 }
 
-header nav a{
+header nav a {
     padding-right: 10px;
 }
 
@@ -91,7 +91,7 @@ footer {
 .contenedor-tarjeta-artista {
     background-color: rgb(26, 26, 26);
     padding: 40px 40px 40px 40px;
-    height: 70vh;
+    min-height: 70vh;
 }
 
 .artist-tarjeta {
@@ -139,7 +139,7 @@ footer {
     margin-bottom: 10px;
 }
 
-form button{
+form button {
     margin-top: 10px;
     background-color: rgb(87, 85, 231);
     border: 0px solid;
@@ -148,18 +148,18 @@ form button{
     cursor: pointer;
 }
 
-form button:hover{
+form button:hover {
     background-color: rgb(63, 61, 184);
 }
 
-input{
+input {
     border-radius: 5px;
     border: 1px solid;
     padding: 5px;
     width: 100%;
 }
 
-form{
+form {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -175,4 +175,12 @@ form{
     padding: 50px;
     border-radius: 30px;
     margin: 50px;
+}
+
+.contenedor-artist-control{
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
 }

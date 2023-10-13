@@ -13,4 +13,8 @@ class ArtistaView{
         require './templates/artistaInfo.phtml';
 
     }
+
+    function showError($error){
+        require './templates/error.phtml';
+    }
 }

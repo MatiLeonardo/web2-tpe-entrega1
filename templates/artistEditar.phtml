@@ -1,0 +1,25 @@
+<?php include './templates/header.phtml'; ?>
+
+
+<div class='contenedor-artist-control'>
+    <form action='editArtista' method="post">
+
+        <label for=''>Nombre artístico</label>
+        <input type='text' name='artist-name'>
+
+        <label for=''>Descripcion</label>
+        <textarea name='artist-desc' id='' cols='30' rows='10'></textarea>
+
+        <label for=''>Edad</label>
+        <input type='text' name='artist-edad'>
+
+        <label for=''>Nacionalidad</label>
+        <input type='text' name='artist-nac'>
+
+        <button type='submit'>Editar</button>
+    </form>
+
+
+</div>
+
+<?php include './templates/footer.phtml'; ?>

@@ -24,4 +24,24 @@ Class ArtistaModel{
         
         return $artista;
     }
+
+    function addArtista($nombre, $descripcion, $edad, $nacionalidad){
+        $db = $this->connectionDB();
+        $query = $db->prepare('INSERT INTO artistas (nombre_artista, descripcion, edad, nacionalidad) VALUES (?, ?, ?, ?)');
+        $query->execute([$nombre, $descripcion, $edad, $nacionalidad]);
+
+    }
+
+    function removeArtista($id){
+        $db = $this->connectionDB();
+        $query = $db->prepare('DELETE FROM artistas WHERE id = ?');
+        $query->execute([$id]);
+
+    }
+
+    function editArtista($id, $nombre, $descripcion, $edad, $nacionalidad){
+        $db = $this->connectionDB();
+        $query = $db->prepare('UPDATE artistas SET nombre = ?, descripcion = ?, edad = ?, nacionalidad = ? WHERE id = ?');
+        $query->execute([$nombre, $descripcion, $edad, $nacionalidad, $id]);
+    }
 }

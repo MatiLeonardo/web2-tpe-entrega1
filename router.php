@@ -28,7 +28,7 @@ switch ($params[0]) {
         $controller = new SesionController();
         $controller->showLogin();
         break;
-    case "register":
+    case "registerurl":
         $controller = new SesionController();
         $controller->showRegister();
         break;
@@ -36,6 +36,15 @@ switch ($params[0]) {
         $controller = new SesionController();
         $controller->register();
         break;
+    case "addArtista":
+        $controller = new ArtistaController();
+        $controller->addArtista();
+    case "removeArtista":
+        $controller = new ArtistaController();
+        $controller->removeArtist($params[1]);
+    case "editArtista":
+        $controller = new ArtistaController();
+        $controller->editArtist($params[1]);
     default:
         echo "404 Page Not Found";
         break;

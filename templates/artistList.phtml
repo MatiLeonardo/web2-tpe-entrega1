@@ -1,22 +1,14 @@
-<?php 
-include 'header.phtml'; 
+<?php
 
-echo "
-<table>
-    <thead>
-        <tr>
-            <td>Artista</td>
-        </tr>
-    </thead>
-        <tbody>";
-            foreach($artistas as $artista){
-                echo"<tr><td><a href='artista/$artista->id'>$artista->nombre_artista</a></td></tr>";
-            }
-    echo"
-        </tbody>
-</table>
-";
+include 'header.phtml';
 
-include 'footer.phtml'; 
+echo"<div class='contenedor-tarjeta-artista'>";
+foreach($artistas as $artista){
+    echo" <div class='artist-tarjeta'><a href='artista/$artista->id'>$artista->nombre_artista</a></div>";
+}
+
+echo"</div>";
+
+include 'footer.phtml';
 
 ?>

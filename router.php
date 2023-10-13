@@ -32,6 +32,10 @@ switch ($params[0]) {
         $controller = new SesionController();
         $controller->showRegister();
         break;
+    case "registrar":
+        $controller = new SesionController();
+        $controller->register();
+        break;
     default:
         echo "404 Page Not Found";
         break;

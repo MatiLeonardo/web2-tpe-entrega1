@@ -22,9 +22,9 @@ class SesionController{
 
     function register(){
 
-        if(!empty($_POST['usuario']) && !empty($_POST['password'])){
-            $user = $_POST['usuario'];
-            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        if(!empty($_POST['user-register']) && !empty($_POST['password-register'])){
+            $user = $_POST['user-register'];
+            $password = password_hash($_POST['password-register'], PASSWORD_BCRYPT);
 
             $this->model->registerUser($user, $password);
             header('Location:' . LOGIN);

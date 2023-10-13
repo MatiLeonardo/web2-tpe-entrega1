@@ -19,7 +19,7 @@ class SesionModel{
 
     function registerUser($user, $password){
         $db = $this->connectionDB();
-        $query = $db->prepare('INSERT INTO usuarios (usuario, password) VALUES = (?,?) ');
+        $query = $db->prepare('INSERT INTO usuarios (usuario, password) VALUES (?, ?) ');
         $query->execute([$user, $password]);
     }
 

@@ -1,26 +1,24 @@
-<?php 
-include './templates/header.phtml'; 
+<?php require ("templates/header.phtml")?>
 
-echo "
-    <div class='contenedorArtista'>
-      <div class='artist-nom'>
+<div class='contenedorArtista'>
+    <div class='artist-nom'>
         <h2>Artista</h2>
         <h3>$artista->nombre_artista</h3>
-      </div>
-      <div class='contenedorDesc'>
-          <div class='artist-desc'>
-          <h2>Descripcion</h2>
-          <p>$artista->descripcion</p>
-          </div>
-          <div class='artist-nac'>
-          <h4>Nacionalidad</h4>
-          <p>$artista->nacionalidad</p>
-          <h4>Edad</h4>
-          <p>$artista->edad</p>
-          </div>
-      </div>
-    </div>";
+    </div>
+    <div class='contenedorDesc'>
+        <div class='artist-desc'>
+            <h2>Descripcion</h2>
+            <p>$artista->descripcion</p>
+        </div>
+        <div class='artist-nac'>
+            <h4>Nacionalidad</h4>
+            <p>$artista->nacionalidad</p>
+            <h4>Edad</h4>
+            <p>$artista->edad</p>
+        </div>
+    </div>
+</div>
 
-include './templates/footer.phtml'; 
+<?php require ("templates/footer.phtml")?>
 
-?>
+

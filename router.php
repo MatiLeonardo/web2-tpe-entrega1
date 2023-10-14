@@ -1,6 +1,7 @@
 <?php
 require_once './app/controllers/artista.controller.php';
 require_once './app/controllers/sesion.controller.php';
+require_once './app/controllers/cancion.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 define("LOGIN", BASE_URL . 'login');
@@ -16,6 +17,10 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
+    case "canciones":
+        $controller = new CancionController();
+        $controller->listaCanciones();
+        break;
     case "inicio":
         $controller = new ArtistaController();
         $controller->showListaArtistas();

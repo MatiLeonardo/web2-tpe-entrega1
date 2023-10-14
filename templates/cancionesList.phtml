@@ -1,0 +1,28 @@
+<?php require ("templates/header.phtml")?>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Duracion</td>
+                <td>Artista</td>
+                <td>Album</td>
+                <td>Genero</td>
+            </tr>    
+        </thead>
+        <tbody>
+        <?php foreach ($canciones as $cancion): ?>
+            <tr>    
+                <td><?=$cancion->nombre_cancion?></td>
+                <td><?=$cancion->duracion?></td>
+                <td><?=$cancion->nombre_artista?></td>
+                <td><?=$cancion->album?></td>
+                <td><?=$cancion->genero?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>    
+    </table>
+</div>
+
+<?php require ("templates/footer.phtml")?>

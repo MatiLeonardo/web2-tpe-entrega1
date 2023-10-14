@@ -51,4 +51,8 @@ class SesionController{
 
     }
 
+    function logout(){
+        SesionHelper::logout(); 
+    }
+
 }

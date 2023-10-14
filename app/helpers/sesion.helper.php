@@ -29,4 +29,9 @@ class SesionHelper{
         return $_SESSION['USER_IS_ADMIN'] = 1;
     }
 
+    public static function logout(){
+        session_destroy();
+        header("Location: " . BASE_URL); 
+    }
+
 }

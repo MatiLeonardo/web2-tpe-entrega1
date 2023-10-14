@@ -33,6 +33,10 @@ switch ($params[0]) {
         $controller = new SesionController();
         $controller->showLogin();
         break;
+    case "auth":
+        $controller = new SesionController();
+        $controller->auth();
+        break;
     case "registerurl":
         $controller = new SesionController();
         $controller->showRegister();

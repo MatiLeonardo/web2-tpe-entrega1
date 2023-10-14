@@ -49,8 +49,6 @@ class SesionController{
             $this->view->showLogin("Usuario invalido");
         }
 
-
-
     }
 
 }

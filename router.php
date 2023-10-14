@@ -17,11 +17,11 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 switch ($params[0]) {
-    case "inicio":
+    case "canciones":
         $controller = new CancionController();
         $controller->listaCanciones();
         break;
-    case "artistas":
+    case "inicio":
         $controller = new ArtistaController();
         $controller->showListaArtistas();
         break;

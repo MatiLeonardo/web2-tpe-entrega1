@@ -1,15 +1,13 @@
-<?php
+<?php require ("templates/header.phtml")?>
 
-include './templates/header.phtml';
+<div class='contenedor-tarjeta-artista'>
+    <?php foreach($artistas as $artista):?>
+        <div class='artist-tarjeta'>
+            <a href='<?=$artista/$artista->id?>'>asdfaf<?=$artista->nombre_artista?></a>
+        </div>
+    <?php endforeach; ?>
+</div>
 
-echo"<div class='contenedor-tarjeta-artista'>";
-foreach($artistas as $artista){
-    echo" <div class='artist-tarjeta'><a href='artista/$artista->id'>$artista->nombre_artista</a></div>";
-}
+<?php require ("templates/artisAgregar.phtml")?>
+<?php require ("templates/footer.phtml")?>
 
-echo"</div>";
-
-include './templates/artistAgregar.phtml';
-include './templates/footer.phtml';
-
-?>

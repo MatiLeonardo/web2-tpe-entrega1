@@ -12,6 +12,8 @@ class SesionHelper{
         SesionHelper::init();
         $_SESSION['USER_ID'] = $usuario->id;
         $_SESSION['USER_USER'] = $usuario->usuario;
+        $_SESSION['USER_IS_ADMIN'] = $usuario->rol;
+        
     }
 
     public static function verify() {
@@ -20,6 +22,11 @@ class SesionHelper{
             header('Location: ' . LOGIN); 
             die();
         }
+    }
+
+    public static function isAdmin(){
+        SesionHelper::init();
+        return $_SESSION['USER_IS_ADMIN'] = 1;
     }
 
 }

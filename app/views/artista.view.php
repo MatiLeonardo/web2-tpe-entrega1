@@ -1,21 +1,31 @@
 <?php
 
 
-class ArtistaView{
+class ArtistaView
+{
 
-    function showListaArtistas($artistas){
+    function showListaArtistas($artistas)
+    {
 
         require './templates/artistList.phtml';
+        if (SesionHelper::isAdmin()) {
+            require './templates/artistAgregar.phtml';
+
+        }
+
 
     }
-    
-    function showArtista($artista){
+
+    function showArtista($artista)
+    {
         require './templates/artistaInfo.phtml';
+        
 
     }
 
 
-    function showError($error){
+    function showError($error)
+    {
         require './templates/error.phtml';
     }
 }

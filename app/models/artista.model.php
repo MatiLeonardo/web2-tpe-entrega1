@@ -3,7 +3,7 @@
 Class ArtistaModel{
 
     function connectionDB(){
-        $db =  new PDO('mysql:host=localhost;dbname=tpeweb2_cancionesyartistas;charset=utf8','root','');
+        $db =  new PDO('mysql:host=localhost;dbname=tpeweb2;charset=utf8','root','');
         return $db;
     }
 

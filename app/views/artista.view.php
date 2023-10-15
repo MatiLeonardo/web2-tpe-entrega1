@@ -8,12 +8,6 @@ class ArtistaView
     {
 
         require './templates/artistList.phtml';
-        if (SesionHelper::isAdmin()) {
-            require './templates/artistAgregar.phtml';
-
-        }
-
-
     }
 
     function showArtista($artista)

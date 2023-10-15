@@ -30,6 +30,7 @@ class SesionHelper{
     }
 
     public static function logout(){
+        SesionHelper::init();
         session_destroy();
         header("Location: " . BASE_URL); 
     }

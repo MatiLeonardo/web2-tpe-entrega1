@@ -1,9 +1,15 @@
 <?php require ("templates/header.phtml")?>
 <div>
     <h1><?= $cancion->nombre_cancion?></h1>
-    
-
-
+    <ul>
+        <li>Artista: <?= $cancion->nombre_artista?></li>
+        <li>Album: <?= $cancion->album?></li>
+        <li>Genero: <?= $cancion->genero?></li>
+        <li>Duracion: <?= $cancion->duracion?></li>
+    </ul>
+    <div>
+        <p><?= $cancion->letra?></p>
+    </div>
 </div>
 
 <?php require ("templates/footer.phtml")?>

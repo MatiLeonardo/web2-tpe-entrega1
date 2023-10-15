@@ -1,15 +1,21 @@
 <?php
+include_once 'config.php';
 
 Class CancionModel{
 
+    private $db;
+
+    function __construct(){
+        $this->db = $this->connectionDB();
+    }
+
     function connectionDB(){
-        $db =  new PDO('mysql:host=localhost;dbname=tpeweb2_cancionesyartistas;charset=utf8','root','');
+        $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
         return $db;
     }
 
     function getCanciones(){
-        $db =  $this->connectionDB();
-        $query = $db->prepare('SELECT * from canciones');
+        $query = $this->db->prepare('SELECT * from canciones');
         $query->execute();
         $canciones = $query->fetchAll(PDO::FETCH_OBJ);
 
@@ -17,8 +23,7 @@ Class CancionModel{
     }
 
     function getCancion($id){
-        $db = $this->connectionDB();
-        $query = $db->prepare('SELECT * from canciones WHERE id = ?');
+        $query = $this->db->prepare('SELECT * from canciones WHERE id = ?');
         $query->execute([$id]);
         $cancion = $query->fetch(PDO::FETCH_OBJ);
         
@@ -26,24 +31,21 @@ Class CancionModel{
     }
 
     function addCancion($nombre, $artista, $album, $genero, $duracion, $letra){
-        $db = $this->connectionDB();
-        $query = $db->prepare('INSERT INTO canciones (nombre_cancion, nombre_artista, album, genero, duracion, letra) VALUES (?, ?, ?, ?, ?, ?)');
+        $query = $this->db->prepare('INSERT INTO canciones (nombre_cancion, nombre_artista, album, genero, duracion, letra) VALUES (?, ?, ?, ?, ?, ?)');
         $query->execute([$nombre, $artista, $album, $genero, $duracion, $letra]);
 
-        return $db->lastInsertId();
+        return $this->db->lastInsertId();
 
     }
 
     function removeCancion($id){
-        $db = $this->connectionDB();
-        $query = $db->prepare('DELETE FROM canciones WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM canciones WHERE id = ?');
         $query->execute([$id]);
 
     }
 
     function editCancion($id, $nombre, $artista, $album, $genero, $duracion, $letra){
-        $db = $this->connectionDB();
-        $query = $db->prepare('UPDATE canciones SET nombre = ?, artista = ?, album = ?, genero = ?, duracion = ?, letra = ? WHERE id = ?');
+        $query = $this->db->prepare('UPDATE canciones SET nombre = ?, artista = ?, album = ?, genero = ?, duracion = ?, letra = ? WHERE id = ?');
         $query->execute([$nombre, $artista, $album, $genero, $duracion, $letra, $id]);
     }
 }

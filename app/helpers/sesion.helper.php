@@ -15,7 +15,6 @@ class SesionHelper
         SesionHelper::init();
         $_SESSION['USER_ID'] = $usuario->id;
         $_SESSION['USERNAME'] = $usuario->usuario;
-        $_SESSION['USER_IS_ADMIN'] = $usuario->rol;
 
     }
 
@@ -23,11 +22,12 @@ class SesionHelper
     {
         SesionHelper::init();
         if (!isset($_SESSION['USER_ID'])) {
-            header('Location: ' . LOGIN);
-            die();
+            return false;
         }
+        return true;
     }
 
+    
     public static function logout()
     {
         SesionHelper::init();

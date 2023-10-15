@@ -18,8 +18,11 @@
         <nav>
             <a href="<?php BASE_URL; ?>canciones">Lista de canciones</a>
 
-            <a href="<?php BASE_URL; ?>login">Login</a>
-            <a href="<?php BASE_URL; ?>logout">Logout</a>
-        </nav>
+            <?php if (!SesionHelper::verify()) { ?>
+                <a href="<?php echo BASE_URL; ?>login">Login</a>
+            <?php } else { ?>
+                <a href="<?php echo BASE_URL; ?>logout">Logout</a>
+            <?php } ?>
 
+        </nav>
     </header>

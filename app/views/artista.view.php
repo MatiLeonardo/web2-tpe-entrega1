@@ -1,5 +1,5 @@
 <?php
-
+include_once './app/helpers/sesion.helper.php';
 
 class ArtistaView
 {
@@ -8,21 +8,14 @@ class ArtistaView
     {
 
         require './templates/artistList.phtml';
-        if (SesionHelper::isAdmin()) {
-            require './templates/artistAgregar.phtml';
-
-        }
-
 
     }
 
     function showArtista($artista)
     {
         require './templates/artistaInfo.phtml';
-        
 
     }
-
 
     function showError($error)
     {

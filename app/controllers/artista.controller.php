@@ -68,8 +68,8 @@ class ArtistaController
             $this->view->showError("Debes completar todos los datos");
             return;
         }
-        $ide = $this->model->editArtista($id, $nombre, $desc, $edad, $nac);
-        if($ide){
+        $realizado = $this->model->editArtista($id, $nombre, $desc, $edad, $nac);
+        if($realizado){
         header("Location: " . BASE_URL);
         } else{
             $this->view->showError("Error al editar el artista");

@@ -120,12 +120,12 @@ footer {
 
 }
 
-#eliminar-btn{
+#eliminar-btn {
     width: 20%;
     color: rgb(255, 255, 255);
 }
 
-#eliminar-btn:hover{
+#eliminar-btn:hover {
     color: gray;
     background-color: brown;
 }
@@ -183,7 +183,7 @@ form {
     margin: 50px;
 }
 
-.contenedor-artist-control{
+.contenedor-artist-control {
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
@@ -191,17 +191,61 @@ form {
     padding: 40px;
 }
 
-.contenedor-lista-canciones{
+.contenedor-lista-canciones {
     padding: 40px;
-    border-radius: 30px;
-    overflow: hidden;
 }
 
+.contenedor-cancion {
+    display: flex;
+    color: whitesmoke;
+    padding: 40px;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.contenedor-info {
+    width: 50%;
+}
+
+.contenedor-letra {
+    width: 50%;
+    padding-right: 20%;
+}
+
+.cancion-nom h1 {
+    font-size: 4em;
+    color: transparent;
+    background: linear-gradient(90deg, rgba(255, 0, 208, 1) 0%, rgba(233, 19, 130, 1) 50%, rgba(255, 0, 63, 1) 100%);
+    background-clip: border-box;
+    background-clip: text;
+}
+
+.cancion-nom h2 {
+
+    font-size: 2em;
+    color: whitesmoke;
+}
+
+
+.cancion-info {
+    font-size: 2em;
+    color: transparent;
+    background: linear-gradient(90deg, rgba(0, 255, 134, 1) 0%, rgba(19, 233, 49, 1) 50%, rgba(255, 220, 0, 1) 100%);
+    background-clip: border-box;
+    background-clip: text;
+}
+
+.subtitulo-info {
+    color: transparent;
+    background: linear-gradient(90deg, rgba(255, 0, 208, 1) 0%, rgb(179, 16, 100) 50%, rgba(255, 0, 63, 1) 100%);
+    background-clip: border-box;
+    background-clip: text;
+}
 
 table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 10px; 
+    border-radius: 10px;
     overflow: hidden;
 }
 

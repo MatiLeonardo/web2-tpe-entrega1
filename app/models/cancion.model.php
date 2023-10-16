@@ -17,14 +17,21 @@ Class CancionModel{
     }
 
     function getCancion($id){
-        $db = $this->connectionDB();
-        $query = $db->prepare('SELECT * from canciones WHERE id = ?');
-        $query->execute([$id]);
-        $cancion = $query->fetch(PDO::FETCH_OBJ);
-        
-        return $cancion;
-    }
-
+        try {
+            $db = $this->connectionDB();
+            $query = $db->prepare('SELECT * from canciones WHERE id_cancion = ?');
+            $query->execute([$id]);
+            $cancion = $query->fetch(PDO::FETCH_OBJ);
+    
+            if ($cancion === false) {
+                return null;
+            }
+            return $cancion;
+        } catch (PDOException $e) {
+            throw $e;
+        }
+    }    
+    
     function addCancion($nombre, $artista, $album, $genero, $duracion, $letra){
         $db = $this->connectionDB();
         $query = $db->prepare('INSERT INTO canciones (nombre_cancion, nombre_artista, album, genero, duracion, letra) VALUES (?, ?, ?, ?, ?, ?)');

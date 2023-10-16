@@ -1,5 +1,5 @@
 <?php
-
+include_once './app/helpers/sesion.helper.php';
 
 class ArtistaView
 {
@@ -13,10 +13,8 @@ class ArtistaView
     function showArtista($artista)
     {
         require './templates/artistaInfo.phtml';
-        
 
     }
-
 
     function showError($error)
     {

@@ -14,8 +14,8 @@
         <tbody>
         <?php foreach ($canciones as $cancion): ?>
             <tr>    
-                <td><?=$cancion->nombre_cancion?></td>
-                <td><?=$cancion->duracion?></td>
+                <td><a href="cancion/<? $cancion->id_cancion?>"><?=$cancion->nombre_cancion?></a></td>
+                <td><?=$cancion->duracion?>+</td>
                 <td><?=$cancion->nombre_artista?></td>
                 <td><?=$cancion->album?></td>
                 <td><?=$cancion->genero?></td>

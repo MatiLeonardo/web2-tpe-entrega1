@@ -7,8 +7,8 @@
         </div>
     <?php endforeach; ?>
 </div>
-<?php if(SesionHelper::isAdmin()): ?>
+<?php if (isset($_SESSION)): ?>
     <?php require("templates/artistAgregar.phtml") ?>
-<?php endif;?>
+<?php endif; ?>
 
 <?php require("templates/footer.phtml") ?>

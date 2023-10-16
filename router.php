@@ -13,17 +13,22 @@ if (!empty($_GET['action'])) {
 }
 
 
+
 // parsea la accion para separar accion real de parametros
 $params = explode('/', $action);
 
 switch ($params[0]) {
+    case "inicio":
+        $controller = new ArtistaController();
+        $controller->showListaArtistas();
+        break;
     case "canciones":
         $controller = new CancionController();
         $controller->listaCanciones();
         break;
-    case "inicio":
-        $controller = new ArtistaController();
-        $controller->showListaArtistas();
+    case "cancion":
+        $controller = new CancionController();
+        $controller->infoCancion($params[1]);
         break;
     case "artista":
         $controller = new ArtistaController();

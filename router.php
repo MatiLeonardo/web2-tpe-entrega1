@@ -31,6 +31,14 @@ switch ($params[0]) {
         $controller = new CancionController();
         $controller->infoCancion($params[1]);
         break;
+    case "agregar":
+        $controller = new CancionController();
+        $controller->agregarCancion();
+        break;
+    case "borrar":
+        $controller = new CancionController();
+        $controller->agregarCancion();
+        break;
     case "artista":
         $controller = new ArtistaController();
         $controller->showArtista($params[1]);

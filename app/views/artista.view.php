@@ -4,6 +4,7 @@ include_once './app/helpers/sesion.helper.php';
 class ArtistaView
 {
 
+
     function showListaArtistas($artistas)
     {
 

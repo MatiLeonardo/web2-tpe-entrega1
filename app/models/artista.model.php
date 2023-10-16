@@ -45,7 +45,7 @@ Class ArtistaModel{
     }
 
     function editArtista($id, $nombre, $descripcion, $edad, $nacionalidad){
-        $query = $this->db->prepare('UPDATE artistas SET nombre = ?, descripcion = ?, edad = ?, nacionalidad = ? WHERE id = ?');
+        $query = $this->db->prepare('UPDATE artistas SET nombre_artista = ?, descripcion = ?, edad = ?, nacionalidad = ? WHERE id = ?');
         $realizado = $query->execute([$nombre, $descripcion, $edad, $nacionalidad, $id]);
 
         return $realizado;

@@ -7,7 +7,8 @@
     <div style="padding-left: 100px;">
         <p style="font-size: 3em;">Editar artista</p>
 
-        <form id="" action='editArtista' method="post">
+        <form id="" action='editArtista/<?= $artista->id ?>' method='post'>
+
 
             <label for=''>Nombre artístico</label>
             <input type='text' name='artist-name'>
@@ -24,5 +25,7 @@
             <button type='submit'>Editar</button>
         </form>
     </div>
+
+
 
 </div>

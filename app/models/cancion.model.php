@@ -15,7 +15,7 @@ Class CancionModel{
     }
 
     function getCanciones(){
-        $query = $this->db->prepare('SELECT * from canciones');
+        $query = $this->db->prepare('SELECT * FROM canciones');
         $query->execute();
         $canciones = $query->fetchAll(PDO::FETCH_OBJ);
 
@@ -23,19 +23,11 @@ Class CancionModel{
     }
 
     function getCancion($id){
-        try {
-            $db = $this->connectionDB();
-            $query = $db->prepare('SELECT * from canciones WHERE id_cancion = ?');
-            $query->execute([$id]);
-            $cancion = $query->fetch(PDO::FETCH_OBJ);
-    
-            if ($cancion === false) {
-                return null;
-            }
-            return $cancion;
-        } catch (PDOException $e) {
-            throw $e;
-        }
+        $query = $this->db->prepare('SELECT * FROM canciones WHERE id_cancion = ?');
+        $query->execute([$id]);       
+        $cancion = $query->fetch(PDO::FETCH_OBJ);
+
+        return $cancion;
     }    
     
     function addCancion($nombre, $artista, $album, $genero, $duracion, $letra){

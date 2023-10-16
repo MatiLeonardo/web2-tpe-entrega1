@@ -7,18 +7,27 @@ class SesionModel
 
     private $db;
 
-    function __construct()
+    public function __construct()
     {
-        $this->db = $this->connectionDB();
+        $this->db = new PDO(
+            "mysql:host=" . DB_HOST .
+            ";dbname=" . DB_NAME . ";charset=utf8",
+            DB_USER,
+            DB_PASS
+        );
+    }
+    
+    function _deploy()
+    {
+        $query = $this->db->query('SHOW TABLES');
+        $tables = $query->fetchAll();
+        if (count($tables) == 0) {
+            $sql = <<<END
+    END;
+            $this->db->query($sql);
+        }
     }
 
-
-
-    function connectionDB()
-    {
-        $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
-        return $db;
-    }
 
     function getUser($user)
     {

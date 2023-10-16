@@ -15,15 +15,21 @@ class SesionModel
             DB_USER,
             DB_PASS
         );
+        $this->_deploy();
+
     }
-    
+
     function _deploy()
     {
         $query = $this->db->query('SHOW TABLES');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = <<<END
-    END;
+            $sql = "CREATE TABLE IF NOT EXISTS usuarios (
+                id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+                usuario VARCHAR(255) NOT NULL,
+                password VARCHAR(255) NOT NULL,
+                isAdmin TINYINT(1) DEFAULT 0
+            )";
             $this->db->query($sql);
         }
     }

@@ -14,6 +14,8 @@ class CancionModel
             DB_USER,
             DB_PASS
         );
+        $this->_deploy();
+
     }
 
     function _deploy()
@@ -21,12 +23,19 @@ class CancionModel
         $query = $this->db->query('SHOW TABLES');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = <<<END
-    END;
+            $sql = "CREATE TABLE IF NOT EXISTS canciones (
+            id_cancion INT AUTO_INCREMENT PRIMARY KEY,
+            nombre_cancion VARCHAR(255) NOT NULL,
+            nombre_artista VARCHAR(255) NOT NULL,
+            album VARCHAR(255),
+            genero VARCHAR(50),
+            duracion TIME,
+            letra TEXT,
+            FOREIGN KEY (nombre_artista) REFERENCES artistas(nombre_artista)
+        )";
             $this->db->query($sql);
         }
     }
-
 
     function getCanciones()
     {

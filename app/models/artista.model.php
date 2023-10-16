@@ -14,18 +14,26 @@ class ArtistaModel
             DB_USER,
             DB_PASS
         );
-    
+        $this->_deploy();
+
     }
+
     function _deploy()
     {
         $query = $this->db->query('SHOW TABLES');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = <<<END
-        END;
+            $sql = 'CREATE TABLE IF NOT EXISTS artistas (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nombre_artista VARCHAR(255) NOT NULL,
+            descripcion TEXT,
+            edad INT,
+            nacionalidad VARCHAR(50)
+        )';
             $this->db->query($sql);
         }
     }
+
 
 
     function getArtistas()

@@ -1,13 +1,36 @@
-<?php require ("templates/header.phtml")?>
-<div>
-    <h1><?= $cancion->nombre_cancion;?></h1>
-    <ul>
-        <li>Artista: <?= $cancion->nombre_artista?></li>
-        <li>Album: <?= $cancion->album?></li>
-        <li>Genero: <?= $cancion->genero?></li>
-        <li>Duracion: <?= $cancion->duracion?></li>
-    </ul>
-    <div>
-        <p><?= $cancion->letra?></p>
+<?php require("templates/header.phtml") ?>
+<div class="contenedor-cancion">
+    <div class="contenedor-info">
+        <div class='cancion-nom'>
+            <h2>Cancion</h2>
+            <h1>
+                <?= $cancion->nombre_cancion; ?>
+            </h1>
+        </div>
+        <div class='contenedor-info'>
+        </div>
+        <p class="cancion-info">
+            <span class="subtitulo-info">Artista:</span>
+            <?= $cancion->nombre_artista ?>
+        </p>
+        <p class="cancion-info">
+            <span class="subtitulo-info">Album:</span>
+            <?= $cancion->album ?>
+        </p>
+        <p class="cancion-info">
+            <span class="subtitulo-info">Genero:</span>
+            <?= $cancion->genero ?>
+        </p>
+        <p class="cancion-info">
+            <span class="subtitulo-info">Duracion:</span>
+            <?= $cancion->duracion ?>
+        </p>
+    </div>
+
+    <div class='contenedor-letra'>
+        <p class="cancion-info">Letra</p>
+        <p class="cancion-letra">
+            <?= $cancion->letra ?>
+        </p>
     </div>
 </div>

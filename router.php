@@ -63,6 +63,7 @@ switch ($params[0]) {
         $controller->removeArtist($params[1]);
         break;
     case "editArtista":
+        // Obtén el valor del parámetro "artista" y pásalo a "editArtist"
         $controller = new ArtistaController();
         $controller->editArtist($params[1]);
         break;

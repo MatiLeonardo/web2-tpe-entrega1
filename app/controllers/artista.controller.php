@@ -9,6 +9,7 @@ class ArtistaController
     private $view;
     private $model;
 
+
     function __construct()
     {
         $this->view = new ArtistaView();
@@ -25,9 +26,12 @@ class ArtistaController
     function showArtista($id)
     {
         $artista = $this->model->getArtista($id);
-        $this->view->showArtista($artista);
+        $canciones = $this->model->getCancionesPorArtista($artista->nombre_artista);
+        $this->view->showArtista($artista, $canciones);
 
     }
+
+
 
     function addArtista()
     {

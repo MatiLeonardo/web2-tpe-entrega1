@@ -16,9 +16,11 @@ class ArtistaView
 
     }
 
-    function showArtista($artista)
+    function showArtista($artista, $canciones)
     {
         require './templates/artistaInfo.phtml';
+        require './templates/cancionesList.phtml';
+
         if (SesionHelper::isAdmin()) {
             require './templates/artistEditar.phtml';
         }

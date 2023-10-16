@@ -7,18 +7,33 @@ class SesionModel
 
     private $db;
 
-    function __construct()
+    public function __construct()
     {
-        $this->db = $this->connectionDB();
+        $this->db = new PDO(
+            "mysql:host=" . DB_HOST .
+            ";dbname=" . DB_NAME . ";charset=utf8",
+            DB_USER,
+            DB_PASS
+        );
+        $this->_deploy();
+
     }
 
-
-
-    function connectionDB()
+    function _deploy()
     {
-        $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
-        return $db;
+        $query = $this->db->query('SHOW TABLES');
+        $tables = $query->fetchAll();
+        if (count($tables) == 0) {
+            $sql = "CREATE TABLE IF NOT EXISTS usuarios (
+                id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+                usuario VARCHAR(255) NOT NULL,
+                password VARCHAR(255) NOT NULL,
+                isAdmin TINYINT(1) DEFAULT 0
+            )";
+            $this->db->query($sql);
+        }
     }
+
 
     function getUser($user)
     {

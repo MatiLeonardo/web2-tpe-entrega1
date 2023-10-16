@@ -1,13 +1,13 @@
 <div>
-    <form action="agregar" method="post">
+    <form action="addCancion" method="post">
 
         <label for="nombre_cancion">Nombre</label>
         <input type="text" name="nombre_cancion">
 
         <label for="nombre_artista">Artista</label>
         <select name="nombre_artista">
-            <?php foreach ($canciones as $cancion): ?>
-                <option value="<?=$cancion->nombre_artista?>"><?=$cancion->nombre_artista?></option>
+            <?php foreach ($artistas as $artista): ?>
+                <option value="<?=$artista->nombre_artista?>"><?=$artista->nombre_artista?></option>
             <?php endforeach ?>
         </select>
 
@@ -23,7 +23,7 @@
         <label for="letra">Letra</label>
         <textarea type="text" name="letra"></textarea>
 
-        <input type="submit" value="agregar">
+        <button type="submit">Agregar</button>
     </form>
 </div>
 

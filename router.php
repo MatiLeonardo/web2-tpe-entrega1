@@ -31,14 +31,6 @@ switch ($params[0]) {
         $controller = new CancionController();
         $controller->infoCancion($params[1]);
         break;
-    case "agregar":
-        $controller = new CancionController();
-        $controller->agregarCancion();
-        break;
-    case "borrar":
-        $controller = new CancionController();
-        $controller->agregarCancion();
-        break;
     case "artista":
         $controller = new ArtistaController();
         $controller->showArtista($params[1]);
@@ -75,6 +67,14 @@ switch ($params[0]) {
         // Obtén el valor del parámetro "artista" y pásalo a "editArtist"
         $controller = new ArtistaController();
         $controller->editArtist($params[1]);
+        break;
+    case "addCancion":
+        $controller = new CancionController();
+        $controller->agregarCancion();
+        break;
+    case "removeCancion":
+        $controller = new CancionController();
+        $controller->agregarCancion();
         break;
     default:
         echo "404 Page Not Found";

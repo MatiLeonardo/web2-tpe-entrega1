@@ -57,10 +57,10 @@ class CancionModel
         return $cancion;
     }
 
-    function addCancion($nombre, $artista, $album, $genero, $duracion, $letra)
+    function addCancion($nombre, $nombre_artista, $album, $genero, $duracion, $letra)
     {
         $query = $this->db->prepare('INSERT INTO canciones (nombre_cancion, nombre_artista, album, genero, duracion, letra) VALUES (?, ?, ?, ?, ?, ?)');
-        $query->execute([$nombre, $artista, $album, $genero, $duracion, $letra]);
+        $query->execute([$nombre, $nombre_artista, $album, $genero, $duracion, $letra]);
 
         return $this->db->lastInsertId();
 

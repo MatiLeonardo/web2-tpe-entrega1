@@ -6,8 +6,8 @@
 
         <label for="nombre_artista">Artista</label>
         <select name="nombre_artista">
-            <?php foreach ($canciones as $cancion): ?>
-                <option value="<?=$cancion->nombre_artista?>"><?=$cancion->nombre_artista?></option>
+            <?php foreach ($artistas as $artista): ?>
+                <option value="<?=$artista->nombre_artista?>"><?=$artista->nombre_artista?></option>
             <?php endforeach ?>
         </select>
 

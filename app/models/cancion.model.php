@@ -24,16 +24,15 @@ class CancionModel
         $query = $this->db->query('SHOW TABLES LIKE "canciones"');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = "CREATE TABLE IF NOT EXISTS canciones (
-            id_cancion INT AUTO_INCREMENT PRIMARY KEY,
-            nombre_cancion VARCHAR(255) NOT NULL,
-            nombre_artista VARCHAR(255) NOT NULL,
-            album VARCHAR(255),
-            genero VARCHAR(50),
-            duracion TIME,
-            letra TEXT,
-            FOREIGN KEY (nombre_artista) REFERENCES artistas(nombre_artista)
-        )";
+            $sql = 'CREATE TABLE `canciones` (
+            `id_cancion` int(11) NOT NULL,
+            `nombre_artista` varchar(45) DEFAULT NULL,
+            `nombre_cancion` varchar(45) NOT NULL,
+            `album` varchar(45) NOT NULL,
+            `genero` varchar(45) NOT NULL,
+            `duracion` varchar(10) NOT NULL,
+            `letra` text NOT NULL
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci';
             $this->db->query($sql);
         }
     }
@@ -66,7 +65,8 @@ class CancionModel
 
     }
 
-    function deleteCancion($id){
+    function deleteCancion($id)
+    {
         $query = $this->db->prepare('DELETE FROM canciones WHERE id_cancion = ?');
         $query->execute([$id]);
     }

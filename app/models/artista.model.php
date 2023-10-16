@@ -24,13 +24,14 @@ class ArtistaModel
         $query = $this->db->query('SHOW TABLES LIKE "artistas"');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = 'CREATE TABLE IF NOT EXISTS artistas (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nombre_artista VARCHAR(255) NOT NULL,
-            descripcion TEXT,
-            edad INT,
-            nacionalidad VARCHAR(50)
-        )';
+            $sql = 'CREATE TABLE `artistas` (
+                `id` int(11) NOT NULL AUTO_INCREMENT,
+                `nombre_artista` varchar(30) DEFAULT NULL,
+                `descripcion` varchar(800) NOT NULL,
+                `edad` int(11) NOT NULL,
+                `nacionalidad` varchar(45) NOT NULL,
+                PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci';
             $this->db->query($sql);
 
             $this->addArtista('Bad Bunny', 'Descripción 1', 25, 'Puerto Rico');

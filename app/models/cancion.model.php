@@ -22,6 +22,7 @@ Class CancionModel{
         return $canciones;
     }
 
+
     function getCancion($id){
         $query = $this->db->prepare('SELECT * FROM canciones WHERE id_cancion = ?');
         $query->execute([$id]);       

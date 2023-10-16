@@ -30,6 +30,14 @@ Class ArtistaModel{
         return $artista;
     }
 
+    function getCancionesPorArtista($nombreartista){
+        $query = $this->db->prepare('SELECT * FROM canciones JOIN artistas ON canciones.nombre_artista = artistas.nombre_artista WHERE artistas.nombre_artista = ?');
+        $query->execute([$nombreartista]);
+        $canciones = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $canciones;
+    }
+
     function addArtista($nombre, $descripcion, $edad, $nacionalidad){
         $query = $this->db->prepare('INSERT INTO artistas (nombre_artista, descripcion, edad, nacionalidad) VALUES (?, ?, ?, ?)');
         $query->execute([$nombre, $descripcion, $edad, $nacionalidad]);

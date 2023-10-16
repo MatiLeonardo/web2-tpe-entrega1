@@ -15,19 +15,29 @@ class SesionHelper
         SesionHelper::init();
         $_SESSION['USER_ID'] = $usuario->id;
         $_SESSION['USERNAME'] = $usuario->usuario;
-
+        $_SESSION['ISADMIN'] = $usuario->isAdmin;
     }
 
     public static function verify()
     {
         SesionHelper::init();
         if (!isset($_SESSION['USER_ID'])) {
-            return false;
+            header("Location: " . LOGIN);
+            die();
         }
-        return true;
+
     }
 
-    
+    public static function isAdmin()
+    {
+        SesionHelper::init();
+        if ( isset($_SESSION['ISADMIN']) && $_SESSION['ISADMIN'] == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function logout()
     {
         SesionHelper::init();
@@ -35,5 +45,5 @@ class SesionHelper
         header("Location: " . BASE_URL);
     }
 
-    
+
 }

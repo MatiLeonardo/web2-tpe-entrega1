@@ -8,7 +8,7 @@ class ArtistaView
     {
 
         require './templates/artistList.phtml';
-        if (SesionHelper::verify()) {
+        if (SesionHelper::isAdmin()) {
             require './templates/artistAgregar.phtml';
         }
         require("templates/footer.phtml");
@@ -18,7 +18,7 @@ class ArtistaView
     function showArtista($artista)
     {
         require './templates/artistaInfo.phtml';
-        if (SesionHelper::verify()) {
+        if (SesionHelper::isAdmin()) {
             require './templates/artistEditar.phtml';
         }
 

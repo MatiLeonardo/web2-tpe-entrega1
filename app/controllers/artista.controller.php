@@ -1,6 +1,7 @@
 <?php
 include_once './app/models/artista.model.php';
 include_once './app/views/artista.view.php';
+include_once './app/helpers/sesion.helper.php';
 
 class ArtistaController
 {
@@ -30,6 +31,7 @@ class ArtistaController
 
     function addArtista()
     {
+        SesionHelper::verify();
         $nombre = $_POST['artist-name'];
         $desc = $_POST['artist-desc'];
         $edad = $_POST['artist-edad'];
@@ -52,6 +54,7 @@ class ArtistaController
 
     function removeArtist($id)
     {
+        SesionHelper::verify();
         $this->model->removeArtista($id);
 
         header("Location: " . BASE_URL);
@@ -59,6 +62,7 @@ class ArtistaController
 
     function editArtist($id)
     {
+        SesionHelper::verify();
         $nombre = $_POST['artist-name'];
         $desc = $_POST['artist-desc'];
         $edad = $_POST['artist-edad'];

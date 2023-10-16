@@ -190,3 +190,60 @@ form {
     align-items: center;
     padding: 40px;
 }
+
+.contenedor-lista-canciones{
+    padding: 40px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px; 
+    overflow: hidden;
+}
+
+/* Estilos para el encabezado de la tabla */
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+thead tr {
+    text-align: left;
+}
+
+thead td {
+    padding: 10px;
+}
+
+/* Estilos para las filas pares */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para las filas impares */
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para las celdas de la tabla */
+td {
+    padding: 10px;
+}
+
+/* Estilos para los enlaces dentro de las celdas */
+td a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}

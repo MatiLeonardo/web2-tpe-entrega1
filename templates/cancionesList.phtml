@@ -1,5 +1,8 @@
+<div class='contenedor-lista-canciones'>
 
-<div>
+    <div class='artist-nom'>
+        <h3>Canciones</h3>
+    </div>
     <table>
         <thead>
             <tr>
@@ -7,18 +10,23 @@
                 <td>Nombre</td>
                 <td>Artista</td>
                 <td>Album</td>
-            </tr>    
+            </tr>
         </thead>
         <tbody>
-        <?php foreach ($canciones as $cancion): ?>
-            <tr> 
-                <td><?= $cancion->id_cancion?></td>   
-                <td><a href="cancion/<?= $cancion->id_cancion?>"><?=$cancion->nombre_cancion?></a></td>
-                <td><?=$cancion->nombre_artista?></td>
-                <td><?=$cancion->album?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>    
+            <?php foreach ($canciones as $cancion): ?>
+                <tr>
+                    <td>
+                        <?= $cancion->id_cancion ?>
+                    </td>
+                    <td><a href="cancion/<?= $cancion->id_cancion ?>"><?= $cancion->nombre_cancion ?></a></td>
+                    <td>
+                        <?= $cancion->nombre_artista ?>
+                    </td>
+                    <td>
+                        <?= $cancion->album ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
 </div>
-

@@ -1,0 +1,30 @@
+<div>
+    <form action="agregar" method="post">
+
+        <label for="nombre_cancion">Nombre</label>
+        <input type="text" name="nombre_cancion">
+
+        <label for="nombre_artista">Artista</label>
+        <select name="nombre_artista">
+            <?php foreach ($canciones as $cancion): ?>
+                <option value="<?=$cancion->nombre_artista?>"><?=$cancion->nombre_artista?></option>
+            <?php endforeach ?>
+        </select>
+
+        <label for="album">Album</label>
+        <input type="text" name="album">
+
+        <label for="genero">Genero</label>
+        <input type="text" name="genero">
+
+        <label for="duracion">Duracion</label>
+        <input type="text" name="duracion">
+
+        <label for="letra">Letra</label>
+        <textarea type="text" name="letra"></textarea>
+
+        <input type="submit" value="agregar">
+    </form>
+</div>
+
+

@@ -38,7 +38,7 @@ Class CancionModel{
 
     }
 
-    function removeCancion($id){
+    function deleteCancion($id){
         $query = $this->db->prepare('DELETE FROM canciones WHERE id = ?');
         $query->execute([$id]);
 

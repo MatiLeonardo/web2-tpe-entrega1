@@ -1,28 +1,27 @@
-<?php require ("templates/header.phtml")?>
 
 <div>
     <table>
         <thead>
             <tr>
+                <td>Nr.</td>
                 <td>Nombre</td>
                 <td>Duracion</td>
                 <td>Artista</td>
-                <td>Album</td>
-                <td>Genero</td>
+                <td></td>
             </tr>    
         </thead>
         <tbody>
         <?php foreach ($canciones as $cancion): ?>
-            <tr>    
-                <td><a href="cancion/<? $cancion->id_cancion?>"><?=$cancion->nombre_cancion?></a></td>
-                <td><?=$cancion->duracion?>+</td>
+            <tr> 
+                <td><?=$cancion->id_cancion?></td>   
+                <td><a href="cancion/<?=$cancion->id_cancion?>"><?=$cancion->nombre_cancion?></a></td>
+                <td><?=$cancion->duracion?></td>
                 <td><?=$cancion->nombre_artista?></td>
-                <td><?=$cancion->album?></td>
-                <td><?=$cancion->genero?></td>
+                <?php if (SesionHelper::isAdmin()): ?>
+                    <td><a href='borrar/<?= $cancion->id_cancion ?>'>Eliminar</a></td>
+                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
         </tbody>    
     </table>
 </div>
-
-<?php require ("templates/footer.phtml")?>

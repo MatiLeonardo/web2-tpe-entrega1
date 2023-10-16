@@ -1,4 +1,5 @@
 <?php
+require_once 'init.php';
 require_once './app/controllers/artista.controller.php';
 require_once './app/controllers/sesion.controller.php';
 require_once './app/controllers/cancion.controller.php';

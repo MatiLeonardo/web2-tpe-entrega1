@@ -191,6 +191,14 @@ form {
     padding: 40px;
 }
 
+.contenedor-cancion-control {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
 .contenedor-lista-canciones {
     padding: 40px;
 }

@@ -1,28 +1,36 @@
-<div>
-    <form action="editCancion/<?=$cancion->id_cancion?>" method="post">
+<div class='contenedor-cancion-control'>
 
-        <label for="nombre_cancion">Nombre</label>
-        <input type="text" name="nombre_cancion">
+    <div style="padding-right: 100px;">
+        <p style="font-size: 3em;">Control Panel</p>
 
-        <label for="nombre_artista">Artista</label>
-        <select name="nombre_artista">
-            <?php foreach ($artistas as $artista): ?>
-                <option value="<?=$artista->nombre_artista?>"><?=$artista->nombre_artista?></option>
-            <?php endforeach ?>
-        </select>
+    </div>
+    <div style="padding-left: 100px;">
+        <p style="font-size: 3em;">Editar cancion</p>
+        <form action="editCancion/<?= $cancion->id_cancion ?>" method="post">
 
-        <label for="album">Album</label>
-        <input type="text" name="album">
+            <label for="nombre_cancion">Nombre</label>
+            <input type="text" name="nombre_cancion">
 
-        <label for="genero">Genero</label>
-        <input type="text" name="genero">
+            <label for="nombre_artista">Artista</label>
+            <select name="nombre_artista">
+                <?php foreach ($artistas as $artista): ?>
+                    <option value="<?= $artista->nombre_artista ?>"><?= $artista->nombre_artista ?></option>
+                <?php endforeach ?>
+            </select>
 
-        <label for="duracion">Duracion</label>
-        <input type="text" name="duracion">
+            <label for="album">Album</label>
+            <input type="text" name="album">
 
-        <label for="letra">Letra</label>
-        <textarea type="text" name="letra"></textarea>
+            <label for="genero">Genero</label>
+            <input type="text" name="genero">
 
-        <button type="submit">Editar</button>
-    </form>
+            <label for="duracion">Duracion</label>
+            <input type="text" name="duracion">
+
+            <label for="letra">Letra</label>
+            <textarea type="text" name="letra"></textarea>
+
+            <button type="submit">Editar</button>
+        </form>
+    </div>
 </div>

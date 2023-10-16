@@ -5,8 +5,8 @@ require_once './app/controllers/sesion.controller.php';
 require_once './app/controllers/cancion.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-define('CANCIONES', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/canciones');
-define("LOGIN", BASE_URL . 'login');
+define('CANCIONES', BASE_URL . 'canciones');
+define('LOGIN', BASE_URL . 'login');
 
 
 $action = 'inicio'; // accion por defecto

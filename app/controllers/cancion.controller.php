@@ -29,15 +29,11 @@ class CancionController {
         $this->view->showCancion($cancion, $artistas);
     }
 
-    function editarCancion($id){
-        
-    }
-
     function eliminarCancion($id){
         SesionHelper::verify();
         $this->modelCanciones->deleteCancion($id);
 
-        header("Location: " . BASE_URL);
+        header("Location: " . CANCIONES);
     }
 
     function agregarCancion(){
@@ -60,9 +56,31 @@ class CancionController {
             $this->view->showError("Error al insertar la canción");
         }
         
-        header("Location: " . BASE_URL);
+        header("Location: " . CANCIONES);
     }
 
+    function editCancion($id){
+        SesionHelper::verify();
+
+        $nombre = $_POST['nombre_cancion'];
+        $artista = $_POST['nombre_artista'];
+        $album = $_POST['album'];
+        $genero = $_POST['genero'];
+        $duracion = $_POST['duracion']; 
+        $letra = $_POST['letra'];
+
+        if (empty($nombre) || empty($artista) || empty($album) || empty($genero) || empty($duracion) || empty($letra)) {
+            $this->view->showError("Debes completar todos los datos");
+            return;
+        }
+        $id = $this->modelCanciones->editCancion($nombre, $artista, $album, $genero, $duracion, $letra);
+        if($id){
+        } else {
+            $this->view->showError("Error al insertar la canción");
+        }
+        
+        header("Location: " . CANCIONES);
+    }
     
 
 }

@@ -5,6 +5,7 @@ require_once './app/controllers/sesion.controller.php';
 require_once './app/controllers/cancion.controller.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+define('CANCIONES', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/canciones');
 define("LOGIN", BASE_URL . 'login');
 
 
@@ -74,7 +75,12 @@ switch ($params[0]) {
         break;
     case "removeCancion":
         $controller = new CancionController();
-        $controller->agregarCancion();
+        $controller->eliminarCancion($params[1]);
+        break;
+    case "editCancion":
+        // Obtén el valor del parámetro "artista" y pásalo a "editArtist"
+        $controller = new CancionController();
+        $controller->editCancion($params[1]);
         break;
     default:
         echo "404 Page Not Found";

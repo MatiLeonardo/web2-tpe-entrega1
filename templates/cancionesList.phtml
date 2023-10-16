@@ -10,21 +10,21 @@
                 <td>Nombre</td>
                 <td>Artista</td>
                 <td>Album</td>
+                <?php if (SesionHelper::isAdmin()): ?>
+                    <td>Eliminar</td>
+                <?php endif;?>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($canciones as $cancion): ?>
                 <tr>
-                    <td>
-                        <?= $cancion->id_cancion ?>
-                    </td>
+                    <td><?= $cancion->id_cancion ?></td>
                     <td><a href="cancion/<?= $cancion->id_cancion ?>"><?= $cancion->nombre_cancion ?></a></td>
-                    <td>
-                        <?= $cancion->nombre_artista ?>
-                    </td>
-                    <td>
-                        <?= $cancion->album ?>
-                    </td>
+                    <td><?= $cancion->nombre_artista ?></td>
+                    <td><?= $cancion->album ?></td>
+                    <?php if (SesionHelper::isAdmin()): ?>
+                    <td><a href="removeCancion/<?= $cancion->id_cancion ?>">Eliminar</a></td>
+                <?php endif;?>
                 </tr>
             <?php endforeach; ?>
         </tbody>

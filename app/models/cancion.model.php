@@ -67,14 +67,13 @@ class CancionModel
     }
 
     function deleteCancion($id){
-        $query = $this->db->prepare('DELETE FROM canciones WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM canciones WHERE id_cancion = ?');
         $query->execute([$id]);
-
     }
 
-    function editCancion($id, $nombre, $artista, $album, $genero, $duracion, $letra)
+    function editCancion($nombre, $artista, $album, $genero, $duracion, $letra)
     {
-        $query = $this->db->prepare('UPDATE canciones SET nombre = ?, artista = ?, album = ?, genero = ?, duracion = ?, letra = ? WHERE id = ?');
-        $query->execute([$nombre, $artista, $album, $genero, $duracion, $letra, $id]);
+        $query = $this->db->prepare('UPDATE canciones SET nombre = ?, artista = ?, album = ?, genero = ?, duracion = ?, letra = ? WHERE id_cancion = ?');
+        $query->execute([$nombre, $artista, $album, $genero, $duracion, $letra]);
     }
 }

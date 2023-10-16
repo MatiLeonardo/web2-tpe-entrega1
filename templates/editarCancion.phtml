@@ -1,5 +1,5 @@
 <div>
-    <form action="editar" method="post">
+    <form action="editCancion/<?=$cancion->id_cancion?>" method="post">
 
         <label for="nombre_cancion">Nombre</label>
         <input type="text" name="nombre_cancion">
@@ -23,6 +23,6 @@
         <label for="letra">Letra</label>
         <textarea type="text" name="letra"></textarea>
 
-        <input type="submit" value="editar">
+        <button type="submit">Editar</button>
     </form>
 </div>

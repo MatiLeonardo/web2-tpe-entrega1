@@ -1,6 +1,5 @@
 <?php
 include_once 'config.php';
-include_once 'db.helper.php';
 
 class ArtistaModel
 {
@@ -9,7 +8,6 @@ class ArtistaModel
 
     public function __construct()
     {
-        DatabaseHelper::crearDbSiNoExiste(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
         $this->db = new PDO(
             "mysql:host=" . DB_HOST .

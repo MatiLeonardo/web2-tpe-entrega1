@@ -1,10 +1,12 @@
 <?php
 
 include_once 'config.php';
+include_once 'adminUser.php';
 
 class SesionModel
 {
-
+    private $adminUser;
+    private $password_hashed;
     private $db;
 
     public function __construct()
@@ -15,22 +17,27 @@ class SesionModel
             DB_USER,
             DB_PASS
         );
+
+        $this->adminUser = getUserAdmin();
+        $this->password_hashed = getPasswordAdmin();
         $this->_deploy();
 
     }
 
     function _deploy()
     {
-        $query = $this->db->query('SHOW TABLES');
+        $query = $this->db->query('SHOW TABLES LIKE "usuarios"');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = "CREATE TABLE IF NOT EXISTS usuarios (
-                id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-                usuario VARCHAR(255) NOT NULL,
-                password VARCHAR(255) NOT NULL,
-                isAdmin TINYINT(1) DEFAULT 0
-            )";
+            $sql = "CREATE TABLE `usuarios` (
+            `id` int(11) NOT NULL,
+            `usuario` varchar(100) NOT NULL,
+            `password` varchar(100) NOT NULL,
+            `isAdmin` tinyint(1) NOT NULL
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;";
             $this->db->query($sql);
+            $this->addUsuario($this->adminUser, $this->password_hashed, 1);
+
         }
     }
 
@@ -51,4 +58,9 @@ class SesionModel
         $query->execute([$user, $password]);
     }
 
+    function addUsuario($user, $password, $isAdmin)
+    {
+        $query = $this->db->prepare('INSERT INTO usuarios (usuario, password, isAdmin) VALUES (?, ?, ?)');
+        $query->execute([$user, $password, $isAdmin]);
+    }
 }

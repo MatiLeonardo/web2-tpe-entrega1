@@ -1,5 +1,6 @@
 <?php
 include_once 'config.php';
+include_once 'db.helper.php';
 
 class ArtistaModel
 {
@@ -8,6 +9,8 @@ class ArtistaModel
 
     public function __construct()
     {
+        DatabaseHelper::crearDbSiNoExiste(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
         $this->db = new PDO(
             "mysql:host=" . DB_HOST .
             ";dbname=" . DB_NAME . ";charset=utf8",
@@ -20,7 +23,7 @@ class ArtistaModel
 
     function _deploy()
     {
-        $query = $this->db->query('SHOW TABLES');
+        $query = $this->db->query('SHOW TABLES LIKE "artistas"');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
             $sql = 'CREATE TABLE IF NOT EXISTS artistas (
@@ -31,6 +34,9 @@ class ArtistaModel
             nacionalidad VARCHAR(50)
         )';
             $this->db->query($sql);
+
+            $this->addArtista('Bad Bunny', 'Descripción 1', 25, 'Puerto Rico');
+            $this->addArtista('Arcangel', 'Descripción 2', 30, 'Puerto Rico');
         }
     }
 

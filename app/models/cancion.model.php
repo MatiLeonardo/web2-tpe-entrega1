@@ -8,6 +8,7 @@ class CancionModel
 
     public function __construct()
     {
+
         $this->db = new PDO(
             "mysql:host=" . DB_HOST .
             ";dbname=" . DB_NAME . ";charset=utf8",
@@ -20,7 +21,7 @@ class CancionModel
 
     function _deploy()
     {
-        $query = $this->db->query('SHOW TABLES');
+        $query = $this->db->query('SHOW TABLES LIKE "canciones"');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
             $sql = "CREATE TABLE IF NOT EXISTS canciones (

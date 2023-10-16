@@ -3,12 +3,10 @@
 <div class='contenedor-tarjeta-artista'>
     <?php foreach ($artistas as $artista): ?>
         <div class='artist-tarjeta'>
-            <a href='artista/<?= $artista->id ?>'><?= $artista->nombre_artista ?></a>
+            <a href="artista/<?= $artista->id ?>" id="artist-btn"><?= $artista->nombre_artista ?></a>
+            <?php if (SesionHelper::isAdmin()) { ?>
+                <a href='removeArtista/<?= $artista->id ?>' id='eliminar-btn'>Eliminar</a>
+            <?php } ?>
         </div>
     <?php endforeach; ?>
 </div>
-<?php if (isset($_SESSION)): ?>
-    <?php require("templates/artistAgregar.phtml") ?>
-<?php endif; ?>
-
-<?php require("templates/footer.phtml") ?>

@@ -1,15 +1,28 @@
 <?php
 
-class SesionModel{
+include_once 'config.php';
 
-    function connectionDB(){
-        $db =  new PDO('mysql:host=localhost;dbname=tpeweb2;charset=utf8','root','');
+class SesionModel
+{
+
+    private $db;
+
+    function __construct()
+    {
+        $this->db = $this->connectionDB();
+    }
+
+
+
+    function connectionDB()
+    {
+        $db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
         return $db;
     }
 
-    function getUser($user){
-        $db = $this->connectionDB();
-        $query = $db->prepare('SELECT * FROM usuarios WHERE usuario = ?');
+    function getUser($user)
+    {
+        $query = $this->db->prepare('SELECT * FROM usuarios WHERE usuario = ?');
         $query->execute([$user]);
         $usuario = $query->fetch(PDO::FETCH_OBJ);
 
@@ -17,9 +30,9 @@ class SesionModel{
 
     }
 
-    function registerUser($user, $password){
-        $db = $this->connectionDB();
-        $query = $db->prepare('INSERT INTO usuarios (usuario, password) VALUES (?, ?) ');
+    function registerUser($user, $password)
+    {
+        $query = $this->db->prepare('INSERT INTO usuarios (usuario, password) VALUES (?, ?) ');
         $query->execute([$user, $password]);
     }
 

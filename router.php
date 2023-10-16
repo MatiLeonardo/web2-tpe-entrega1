@@ -57,9 +57,11 @@ switch ($params[0]) {
     case "addArtista":
         $controller = new ArtistaController();
         $controller->addArtista();
+        break;
     case "removeArtista":
         $controller = new ArtistaController();
         $controller->removeArtist($params[1]);
+        break;
     case "editArtista":
         $controller = new ArtistaController();
         $controller->editArtist($params[1]);

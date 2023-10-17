@@ -29,15 +29,17 @@ class SesionModel
         $query = $this->db->query('SHOW TABLES LIKE "usuarios"');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = "CREATE TABLE `usuarios` (
-            `id` int(11) NOT NULL,
+            $sql = <<<END
+        CREATE TABLE `usuarios` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
             `usuario` varchar(100) NOT NULL,
             `password` varchar(100) NOT NULL,
-            `isAdmin` tinyint(1) NOT NULL
-          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;";
+            `isAdmin` tinyint(1) NOT NULL,
+            PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+END;
             $this->db->query($sql);
             $this->addUsuario($this->adminUser, $this->password_hashed, 1);
-
         }
     }
 

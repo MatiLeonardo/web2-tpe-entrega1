@@ -24,18 +24,23 @@ class CancionModel
         $query = $this->db->query('SHOW TABLES LIKE "canciones"');
         $tables = $query->fetchAll();
         if (count($tables) == 0) {
-            $sql = 'CREATE TABLE `canciones` (
-            `id_cancion` int(11) NOT NULL,
-            `nombre_artista` varchar(45) DEFAULT NULL,
-            `nombre_cancion` varchar(45) NOT NULL,
-            `album` varchar(45) NOT NULL,
-            `genero` varchar(45) NOT NULL,
-            `duracion` varchar(10) NOT NULL,
-            `letra` text NOT NULL
-          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci';
+            $sql = <<<END
+            CREATE TABLE `canciones` (
+                `id_cancion` int(11) NOT NULL AUTO_INCREMENT,
+                `nombre_artista` varchar(30) DEFAULT NULL,
+                `nombre_cancion` varchar(45) NOT NULL,
+                `album` varchar(45) NOT NULL,
+                `genero` varchar(45) NOT NULL,
+                `duracion` varchar(10) NOT NULL,
+                `letra` text NOT NULL,
+                PRIMARY KEY (`id_cancion`),
+                FOREIGN KEY (`nombre_artista`) REFERENCES `artistas` (`nombre_artista`) ON DELETE SET NULL ON UPDATE CASCADE
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+    END;
             $this->db->query($sql);
         }
     }
+
 
     function getCanciones()
     {

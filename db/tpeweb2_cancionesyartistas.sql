@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2023 a las 21:33:23
+-- Tiempo de generación: 17-10-2023 a las 01:04:08
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -35,13 +35,6 @@ CREATE TABLE `artistas` (
   `nacionalidad` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `artistas`
---
-
-INSERT INTO `artistas` (`id`, `nombre_artista`, `descripcion`, `edad`, `nacionalidad`) VALUES
-(25, 'Bad Bunny', 'penenee', 29, 'Caca');
-
 -- --------------------------------------------------------
 
 --
@@ -57,13 +50,6 @@ CREATE TABLE `canciones` (
   `duracion` varchar(10) NOT NULL,
   `letra` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `canciones`
---
-
-INSERT INTO `canciones` (`id_cancion`, `nombre_artista`, `nombre_cancion`, `album`, `genero`, `duracion`, `letra`) VALUES
-(6, NULL, 'asdads', 'adsdas', 'dsa', 'dsaadsads', 'adsads');
 
 -- --------------------------------------------------------
 
@@ -83,13 +69,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `password`, `isAdmin`) VALUES
-(1, 'gonza', '$2y$10$4ZSM0M3Yzdp/mTxmAQ.eG.YAWi4EaiZWzaeDgoC3luPzk8MBn1eDy', 0),
-(2, 'prueba', '$2y$10$EJcgBaVTx/NvDapZjNTCF.Ckd73eqXbiTBFMZYwVastNH9YhtrTdq', 0),
-(3, 'prueba2', '$2y$10$yM0A6WoslW0xgDSBP1J9wuTZDBhUF0G/Z9nauKB9Z/Kly2jHKjEce', 0),
-(4, 'webadmin', '$2y$10$Ppi7FwzUsXs2F1.HHx6ccuRpeuQ8LymSWxk5Qg9ma4I8TzBO8W23S', 1),
-(5, 'prueba3', '$2y$10$NdqA2zxrYW/9Bgpmo0U8huQ1F26dZM2Qf4j/N/BDIIaCwfNB4Ae.u', 0),
-(6, 'gonzagiaco', '$2y$10$1oOsXyIFGNTKqn9IgEFO5O4UztUh8oU0VJi36hgabAvNz3UrzMR6y', 0),
-(7, 'gonzita', '$2y$10$CzTFrAVknhTCdM4ChxRjZ.bdCCEGEyTnGSMwOrfPBvreQsqzqSHqq', 0);
+(4, 'webadmin', '$2y$10$Ppi7FwzUsXs2F1.HHx6ccuRpeuQ8LymSWxk5Qg9ma4I8TzBO8W23S', 1);
 
 --
 -- Índices para tablas volcadas

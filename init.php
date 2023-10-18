@@ -8,9 +8,12 @@ include_once './app/models/sesion.model.php';
 
 DatabaseHelper::crearDbSiNoExiste(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-$artistaModel = new ArtistaModel(); //INSTANCIAMOS PARA EJECUTAR EL _DEPLOY DEL CONSTRUCTOR Y CREAR LAS TABLAS
-if (isset($artistaModel)) {
-    $cancionModel = new CancionModel();
-
+if (!isset($artistaModel)) {
+    $artistaModel = new ArtistaModel();
 }
-$sesionModel = new SesionModel();
+if (!isset($cancionModel)) {
+    $cancionModel = new CancionModel();
+}
+if (!isset($sesionModel)) {
+    $sesionModel = new SesionModel();
+}
